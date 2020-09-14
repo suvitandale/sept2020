@@ -1,0 +1,44 @@
+<!--navbar-->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>E-shop Products</h1>
+
+    <div class="container-fluid mt-3">
+    <div class="row">
+<!--------------------------------------------------------filter------------------------------------------------------>
+
+<div class="col-lg-2">
+
+        <div class="list-group">
+            <a href="/" class="list-group-item list-group-item-action">All Category Products</a>
+
+            {% for category in categories %}
+            <a href="/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
+            {% endfor %}
+        </div>
+
+</div>
+
+
+<!---all products------>
+        <div id="products" class="col-lg-10">
+            <div class="row mx-auto">
+             {% for prod in product %}
+             <div class="card mx-auto mb-3" style="width: 18rem;">  
+                <img src="{{prod.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-title">{{prod.name}}</p>
+                  <p class="card-text"><b>{{prod.price}}</b></p>
+                  <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add To Cart</a>
+                </div>
+              </div>
+        
+             {% endfor %}{}
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
